@@ -1,41 +1,4 @@
-const processSteps = [
-  {
-    id: 1,
-    number: "01",
-    title: "Consultation & Planning",
-    image:
-      "https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=600&q=80",
-    description:
-      "We begin with an in-depth consultation to understand your vision, budget, and timeline before creating a detailed project plan.",
-  },
-  {
-    id: 2,
-    number: "02",
-    title: "Design & Permits",
-    image:
-      "https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=600&q=80",
-    description:
-      "Our team handles architectural drawings, engineering reviews, and all necessary permit applications for a smooth approval process.",
-  },
-  {
-    id: 3,
-    number: "03",
-    title: "Construction & Build",
-    image:
-      "https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=600&q=80",
-    description:
-      "Skilled craftsmen bring your project to life with precision, using quality materials and adhering to strict safety standards.",
-  },
-  {
-    id: 4,
-    number: "04",
-    title: "Final Walkthrough",
-    image:
-      "https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=600&q=80",
-    description:
-      "We conduct a thorough final inspection with you, address any punch list items, and ensure everything meets our quality guarantee.",
-  },
-];
+import { processSteps } from "../data/process";
 
 export default function Process() {
   return (
