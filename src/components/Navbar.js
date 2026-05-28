@@ -1,13 +1,14 @@
 "use client";
 
+import Link from "next/link";
 import { useState, useEffect } from "react";
 import Image from "next/image";
 
 const navLinks = [
   { label: "About", href: "/about" },
-  { label: "Services", href: "#services" },
-  { label: "Projects", href: "#" },
-  { label: "Contact", href: "#contact" },
+  { label: "Services", href: "/#services" },
+  { label: "Projects", href: "/#projects" },
+  { label: "Contact", href: "/#contact" },
 ];
 
 export default function Navbar() {
@@ -34,7 +35,7 @@ export default function Navbar() {
     >
       <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8 flex items-center justify-between">
         {/* Logo */}
-        <a href="#" className="relative flex items-center h-16">
+        <a href="/" className="relative">
           {/* White Logo */}
           <Image
             src="/images/ma-logo.png"

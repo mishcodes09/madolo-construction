@@ -1,14 +1,15 @@
-import Navbar from '@/components/Navbar'
-import HeroSection from '@/components/HeroSection'
-import MarqueeBanner from '@/components/MarqueeBanner'
-import FeaturesSection from '@/components/FeaturesSection'
-import ServicesSection from '@/components/ServicesSection'
-import WhyChooseUs from '@/components/WhyChooseUs'
-import ShowcaseSection from '@/components/ShowcaseSection'
-import ProcessSection from '@/components/ProcessSection'
-import TestimonialsSection from '@/components/TestimonialsSection'
-import ContactSection from '@/components/ContactSection'
-import Footer from '@/components/Footer'
+import Navbar from "@/components/Navbar";
+import HeroSection from "@/components/HeroSection";
+import MarqueeBanner from "@/components/MarqueeBanner";
+import FeaturesSection from "@/components/FeaturesSection";
+import ServicesSection from "@/components/ServicesSection";
+import WhyChooseUs from "@/components/WhyChooseUs";
+import ShowcaseSection from "@/components/ShowcaseSection";
+import ProcessSection from "@/components/ProcessSection";
+import TestimonialsSection from "@/components/TestimonialsSection";
+import ContactSection from "@/components/ContactSection";
+import CTASection from "@/components/about/CTASection";
+import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
@@ -24,8 +25,9 @@ export default function Home() {
         <ProcessSection />
         <TestimonialsSection />
         <ContactSection />
+        <CTASection />
       </main>
       <Footer />
     </div>
-  )
+  );
 }
