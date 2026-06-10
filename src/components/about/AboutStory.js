@@ -15,9 +15,9 @@ export default function AboutStory() {
           </h2>
 
           <p className="font-body text-brand-text/70 leading-relaxed mb-5">
-            Led by Nkosiyazi Mncunzwa Dlamini, the company grew from years of
-            practical experience in furniture manufacturing, carpentry, interior
-            design, and renovations.
+            Led by Nkosiyazi Dlamini, the company grew from years of practical
+            experience in furniture manufacturing, carpentry, interior design,
+            and renovations.
           </p>
 
           <p className="font-body text-brand-text/70 leading-relaxed">

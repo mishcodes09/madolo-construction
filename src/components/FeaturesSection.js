@@ -36,7 +36,7 @@ export default function FeaturesSection() {
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
           }`}
         >
-          About Maddlo
+          About Madolo
         </p>
 
         {/* Heading */}

@@ -31,11 +31,11 @@ export default function FounderSection() {
 
             <div className="space-y-5">
               <p className="font-body text-brand-text/70 leading-relaxed">
-                Nkosiyazi Mncunzwa Dlamini is a builder, carpenter, interior
-                designer, and entrepreneur with more than two decades of
-                practical experience. His professional journey began in
-                furniture manufacturing and interior fit-outs before expanding
-                into residential construction, commercial projects, hospitality
+                Nkosiyazi Dlamini is a builder, carpenter, interior designer,
+                and entrepreneur with more than two decades of practical
+                experience. His professional journey began in furniture
+                manufacturing and interior fit-outs before expanding into
+                residential construction, commercial projects, hospitality
                 developments, renovations, and project management.
               </p>
 
