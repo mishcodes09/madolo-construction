@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 const features = [
   {
     id: 1,
@@ -80,11 +82,13 @@ export default function WhyChooseUs() {
 
           {/* Image */}
           <div className="relative flex justify-center">
-            <div className="rounded-2xl overflow-hidden shadow-xl aspect-[4/5] w-full">
-              <img
+            <div className="relative rounded-2xl overflow-hidden shadow-xl aspect-[4/5] w-full">
+              <Image
                 src="/images/tool.jpg"
                 alt="Modern construction"
-                className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
+                fill
+                sizes="(max-width: 1024px) 100vw, 45vw"
+                className="object-cover hover:scale-105 transition-transform duration-700"
               />
             </div>
 

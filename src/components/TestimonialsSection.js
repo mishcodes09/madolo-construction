@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { testimonials } from "@/data/testimonials";
 
 export default function TestimonialsSection() {
@@ -67,12 +68,13 @@ export default function TestimonialsSection() {
           </div>
 
           {/* Image */}
-          <div className="rounded-2xl overflow-hidden shadow-md aspect-[4/3]">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
+          <div className="relative rounded-2xl overflow-hidden shadow-md aspect-[4/3]">
+            <Image
               src={current.image}
               alt={current.name}
-              className="w-full h-full object-cover"
+              fill
+              sizes="(max-width: 768px) 100vw, 50vw"
+              className="object-cover"
             />
           </div>
         </div>

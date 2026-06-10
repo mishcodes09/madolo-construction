@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 export default function FounderSection() {
   return (
@@ -6,11 +7,13 @@ export default function FounderSection() {
       <div className="max-w-5xl mx-auto px-4">
         <div className="grid lg:grid-cols-[0.8fr_1.2fr] gap-10 lg:gap-14 items-center">
           <div className="relative max-w-sm mx-auto lg:mx-0">
-            <div className="aspect-[4/5] overflow-hidden rounded-3xl bg-brand-bg">
-              <img
+            <div className="relative aspect-[4/5] overflow-hidden rounded-3xl bg-brand-bg">
+              <Image
                 src="/images/nkosiyazi.png"
                 alt="Nkosiyazi Dlamini"
-                className="w-full h-full object-cover object-top"
+                fill
+                sizes="(max-width: 1024px) 80vw, 35vw"
+                className="object-cover object-top"
               />
             </div>
 

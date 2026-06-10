@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Image from "next/image";
 import { heroImages } from "@/data/hero";
 
 export default function AboutHero() {
@@ -24,16 +25,23 @@ export default function AboutHero() {
       {/* Background */}
       <div className="absolute inset-0">
         {images.map((image, index) => (
-          <img
+          <div
             key={image}
-            src={image}
-            alt={`Construction ${index + 1}`}
-            className={`absolute inset-0 w-full h-full object-cover transition-all duration-[1500ms] ease-in-out ${
+            className={`absolute inset-0 transition-all duration-[1500ms] ease-in-out ${
               currentImage === index
                 ? "opacity-100 scale-105"
                 : "opacity-0 scale-100"
             }`}
-          />
+          >
+            <Image
+              src={image}
+              alt={`Construction ${index + 1}`}
+              fill
+              priority={index === 0}
+              sizes="100vw"
+              className="object-cover"
+            />
+          </div>
         ))}
 
         {/* Overlay */}

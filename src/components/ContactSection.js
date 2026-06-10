@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { supabase } from "@/lib/supabase";
 
 const WHATSAPP_NUMBER = "27615444038";
@@ -98,11 +99,12 @@ ${form.message}
         <div className="grid grid-cols-1 lg:grid-cols-2 min-h-[600px]">
           {/* Left Image */}
           <div className="relative overflow-hidden h-72 lg:h-auto">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
+            <Image
               src="/images/request.jpeg"
               alt="Contact Maddlo"
-              className="w-full h-full object-cover"
+              fill
+              sizes="(max-width: 1024px) 100vw, 50vw"
+              className="object-cover"
             />
 
             <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent lg:bg-gradient-to-r lg:from-transparent lg:to-black/30" />

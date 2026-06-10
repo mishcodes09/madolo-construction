@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 const row1 = [
   { id: 1, src: "/images/commercial.jpeg", alt: "Commercial build", span: 2 },
   {
@@ -38,12 +40,14 @@ export default function FeaturedProjects() {
               key={img.id}
               className={`${
                 img.span === 2 ? "col-span-2" : "col-span-1"
-              } h-64 md:h-[380px] rounded-2xl overflow-hidden`}
+              } relative h-64 md:h-[380px] rounded-2xl overflow-hidden`}
             >
-              <img
+              <Image
                 src={img.src}
                 alt={img.alt}
-                className="w-full h-full object-cover hover:scale-105 transition-transform duration-700 ease-in-out"
+                fill
+                sizes="(max-width: 768px) 100vw, 66vw"
+                className="object-cover hover:scale-105 transition-transform duration-700 ease-in-out"
               />
             </div>
           ))}
@@ -52,12 +56,14 @@ export default function FeaturedProjects() {
           {row2.map((img) => (
             <div
               key={img.id}
-              className="col-span-1 h-52 md:h-[260px] rounded-2xl overflow-hidden"
+              className="relative col-span-1 h-52 md:h-[260px] rounded-2xl overflow-hidden"
             >
-              <img
+              <Image
                 src={img.src}
                 alt={img.alt}
-                className="w-full h-full object-cover hover:scale-105 transition-transform duration-700 ease-in-out"
+                fill
+                sizes="(max-width: 768px) 50vw, 33vw"
+                className="object-cover hover:scale-105 transition-transform duration-700 ease-in-out"
               />
             </div>
           ))}

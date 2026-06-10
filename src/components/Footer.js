@@ -97,7 +97,7 @@ export default function Footer() {
           <div className="lg:col-span-2">
             <div className="flex items-center gap-3 mb-4">
               <Image
-                src="/images/mad.png"
+                src="/images/transparent.png"
                 alt="Madolo Logo"
                 width={150}
                 height={150}
@@ -193,7 +193,7 @@ export default function Footer() {
         {/* Footer bottom */}
         <div className="border-t border-white/10 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="font-body text-white/30 text-sm">
-            &copy; {currentYear} Madolo Construction.
+            &copy; {currentYear} Madolo Innovative Construction.
           </p>
           <p className="font-body text-white/30 text-sm">
             A division of Isakhono Inovations (Pty) Ltd. All rights reserved.

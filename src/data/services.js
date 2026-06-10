@@ -4,7 +4,7 @@ export const services = [
     title: "Residential Construction",
     description:
       "New homes, extensions, renovations, roofing, and complete turnkey residential solutions.",
-    image: "/images/roof.jpeg",
+    image: "/images/premium.png",
   },
   {
     id: 2,

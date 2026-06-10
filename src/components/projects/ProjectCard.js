@@ -1,14 +1,16 @@
-// src/components/projects/ProjectCard.js
+import Image from "next/image";
 
 export default function ProjectCard({ project }) {
   return (
     <div className="group rounded-2xl overflow-hidden bg-white border border-black/5 hover:shadow-xl transition-all duration-300">
       {/* Image */}
-      <div className="aspect-[4/3] overflow-hidden">
-        <img
+      <div className="relative aspect-[4/3] overflow-hidden">
+        <Image
           src={project.image}
           alt={project.title}
-          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+          fill
+          sizes="(max-width: 768px) 100vw, 33vw"
+          className="object-cover group-hover:scale-105 transition-transform duration-500"
         />
       </div>
 

@@ -22,7 +22,7 @@ export const processSteps = [
     title: "Construction",
     description:
       "Skilled tradespeople execute every phase with precision, keeping you informed at every milestone.",
-    image: "/images/m.png",
+    image: "/images/mh.jpg",
   },
   {
     id: 4,

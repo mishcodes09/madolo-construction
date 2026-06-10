@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export default function AboutStory() {
   return (
     <section className="py-20 md:py-28 px-4 md:px-6 lg:px-12">
@@ -31,11 +33,13 @@ export default function AboutStory() {
         <div className="relative flex justify-center lg:justify-end">
           <div className="w-full max-w-sm lg:max-w-md">
             {/* shorter height here */}
-            <div className="h-[360px] overflow-hidden rounded-3xl bg-brand-bg shadow-lg">
-              <img
+            <div className="relative h-[360px] overflow-hidden rounded-3xl bg-brand-bg shadow-lg">
+              <Image
                 src="/images/balck.png"
                 alt="Nkosiyazi Dlamini"
-                className="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-700"
+                fill
+                sizes="(max-width: 1024px) 80vw, 40vw"
+                className="object-cover object-top hover:scale-105 transition-transform duration-700"
               />
             </div>
           </div>

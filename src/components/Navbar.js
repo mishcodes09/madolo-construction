@@ -31,23 +31,23 @@ export default function Navbar() {
     >
       <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8 flex items-center justify-between">
         {/* Logo */}
-        <a href="/" className="relative">
+        <a
+          href="/"
+          className="relative block w-[250px] h-20 md:w-[250px] md:h-20"
+        >
           <Image
-            src="/images/mad.png"
+            src="/images/transparent.png"
             alt="Madolo Logo"
-            width={120}
-            height={64}
-            className={`absolute h-16 w-auto object-contain transition-opacity duration-300 ${
+            fill
+            className={`object-contain transition-opacity duration-300 ${
               isScrolled ? "opacity-0" : "opacity-100"
             }`}
           />
-
           <Image
-            src="/images/mad-wh.png"
+            src="/images/transblack.png"
             alt="Madolo Logo"
-            width={120}
-            height={64}
-            className={`h-16 w-auto object-contain transition-opacity duration-300 ${
+            fill
+            className={`object-contain transition-opacity duration-300 ${
               isScrolled ? "opacity-100" : "opacity-0"
             }`}
           />

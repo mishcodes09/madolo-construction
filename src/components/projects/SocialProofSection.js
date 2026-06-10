@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState, useCallback } from "react";
+import Image from "next/image";
 
 const TIKTOK_PROFILE = "https://www.tiktok.com/@nkosiyazidlamin";
 
@@ -14,7 +15,7 @@ const videos = [
     views: "2.1M",
     likes: "184K",
     shares: "12K",
-    tags: ["#Construction", "#Doors", "#Maddlo"],
+    tags: ["#Construction", "#Doors", "#Madolo"],
     link: "https://www.tiktok.com/@nkosiyazidlamin/video/7437177862668455224?_r=1&_t=ZS-96iIoFy5kbi",
   },
   {
@@ -26,7 +27,7 @@ const videos = [
     views: "15K",
     likes: "2.1K",
     shares: "340",
-    tags: ["#Decking", "#OutdoorLiving", "#Maddlo"],
+    tags: ["#Decking", "#OutdoorLiving", "#Madolo"],
     link: "https://www.tiktok.com/@nkosiyazidlamin/video/7519896711595068678?is_from_webapp=1&sender_device=pc",
   },
   {
@@ -38,7 +39,7 @@ const videos = [
     views: "31K",
     likes: "4.8K",
     shares: "890",
-    tags: ["#Interior", "#Renovation", "#Maddlo"],
+    tags: ["#Interior", "#Renovation", "#Madolo"],
     link: "https://www.tiktok.com/@nkosiyazidlamin/video/7614925860897934613?is_from_webapp=1&sender_device=pc",
   },
 ];
@@ -213,7 +214,7 @@ export default function SocialProofSection() {
                         src={video.videoSrc}
                         muted={muted}
                         playsInline
-                        preload="metadata"
+                        preload={index === currentVideo ? "metadata" : "none"}
                         onEnded={
                           index === currentVideo ? handleEnded : undefined
                         }
@@ -227,9 +228,13 @@ export default function SocialProofSection() {
                       <div className="absolute right-3 bottom-[88px] flex flex-col items-center gap-4 z-10">
                         {/* Profile avatar + follow */}
                         <div className="relative mb-2">
-                          <div className="w-9 h-9 rounded-full border-2 border-white bg-[#eb191a]/70 overflow-hidden">
-                            <div className="w-full h-full bg-gradient-to-b from-[#eb191a]/60 to-[#eb191a]" />
-                          </div>
+                          <Image
+                            src="/images/nkosi.jpeg"
+                            alt="Creator"
+                            width={36}
+                            height={36}
+                            className="rounded-full border-2 border-white object-cover"
+                          />
                           <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-4 h-4 bg-[#E9010E] rounded-full flex items-center justify-center">
                             <span
                               className="text-white leading-none select-none"
@@ -359,7 +364,7 @@ export default function SocialProofSection() {
                             className="text-white/60 truncate"
                             style={{ fontSize: 9 }}
                           >
-                            Maddlo Construction
+                            Madolo Innovative Construction
                           </span>
                         </div>
                       </div>
