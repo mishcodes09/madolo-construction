@@ -100,7 +100,7 @@ ${form.message}
           <div className="relative overflow-hidden h-72 lg:h-auto">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src="https://images.unsplash.com/photo-1600047509358-9dc75507daeb?w=900&q=85"
+              src="/images/request.jpeg"
               alt="Contact Maddlo"
               className="w-full h-full object-cover"
             />
@@ -110,7 +110,7 @@ ${form.message}
 
           {/* Right Form */}
           <div className="px-8 md:px-14 py-14 flex flex-col justify-center">
-            <p className="font-body text-primary text-xs uppercase tracking-[0.25em] font-medium mb-2">
+            <p className="font-body text-[#eb191a] text-xs uppercase tracking-[0.25em] font-medium mb-2">
               Get in Touch
             </p>
 
@@ -145,7 +145,7 @@ ${form.message}
                     value={form.name}
                     onChange={handleChange}
                     placeholder="Jane Smith"
-                    className="w-full font-body text-sm text-dark bg-brand-bg border border-gray-200 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-all"
+                    className="w-full font-body text-sm text-dark bg-brand-bg border border-gray-200 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#eb191a]/30 focus:border-[#eb191a] transition-all"
                   />
                 </div>
 
@@ -165,7 +165,7 @@ ${form.message}
                     value={form.email}
                     onChange={handleChange}
                     placeholder="jane@example.com"
-                    className="w-full font-body text-sm text-dark bg-brand-bg border border-gray-200 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-all"
+                    className="w-full font-body text-sm text-dark bg-brand-bg border border-gray-200 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#eb191a]/30 focus:border-[#eb191a] transition-all"
                   />
                 </div>
               </div>
@@ -187,7 +187,7 @@ ${form.message}
                     value={form.phone}
                     onChange={handleChange}
                     placeholder="+27 000 000 0000"
-                    className="w-full font-body text-sm text-dark bg-brand-bg border border-gray-200 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-all"
+                    className="w-full font-body text-sm text-dark bg-brand-bg border border-gray-200 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#eb191a]/30 focus:border-[#eb191a] transition-all"
                   />
                 </div>
 
@@ -205,7 +205,7 @@ ${form.message}
                     required
                     value={form.projectType}
                     onChange={handleChange}
-                    className="w-full font-body text-sm text-dark bg-brand-bg border border-gray-200 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-all appearance-none"
+                    className="w-full font-body text-sm text-dark bg-brand-bg border border-gray-200 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#eb191a]/30 focus:border-[#eb191a] transition-all appearance-none"
                   >
                     <option value="" disabled>
                       Select type
@@ -237,7 +237,7 @@ ${form.message}
                   value={form.message}
                   onChange={handleChange}
                   placeholder="Tell us about your project..."
-                  className="w-full font-body text-sm text-dark bg-brand-bg border border-gray-200 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-all resize-none"
+                  className="w-full font-body text-sm text-dark bg-brand-bg border border-gray-200 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#eb191a]/30 focus:border-[#eb191a] transition-all resize-none"
                 />
               </div>
 
@@ -245,7 +245,7 @@ ${form.message}
               <button
                 type="submit"
                 disabled={loading}
-                className="w-full bg-primary text-white font-body font-semibold text-sm py-4 hover:bg-orange-700 transition-colors duration-300 mt-2 disabled:opacity-50"
+                className="w-full bg-[#eb191a] text-white font-body font-semibold text-sm py-4 hover:bg-[#c7000c] transition-colors duration-300 mt-2 disabled:opacity-50"
               >
                 {loading ? "Sending..." : "Request a Free Quote"}
               </button>

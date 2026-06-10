@@ -24,7 +24,7 @@ export default function CoreValues() {
     <section className="py-20 md:py-28">
       <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
         <div className="text-center mb-14">
-          <p className="font-body text-primary text-xs uppercase tracking-[0.25em] font-medium mb-3">
+          <p className="font-body text-[#eb191a] text-xs uppercase tracking-[0.25em] font-medium mb-3">
             Core Values
           </p>
 

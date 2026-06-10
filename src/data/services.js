@@ -3,24 +3,42 @@ export const services = [
     id: 1,
     title: "Residential Construction",
     description:
-      "Custom homes built to your exact specifications, combining structural integrity with refined architectural design.",
-    image:
-      "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&q=80",
+      "New homes, extensions, renovations, roofing, and complete turnkey residential solutions.",
+    image: "/images/roof.jpeg",
   },
   {
     id: 2,
-    title: "Interior Design",
+    title: "Commercial Construction",
     description:
-      "Premium interior solutions that transform spaces into luxurious, functional environments tailored to your lifestyle.",
-    image:
-      "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=800&q=80",
+      "Office buildings, workshops, retail spaces, warehouses, and business developments.",
+    image: "/images/commercial.jpeg",
   },
   {
     id: 3,
-    title: "Finishes",
+    title: "Hospitality Development",
     description:
-      "Impeccable finishing touches — from bespoke tiling and joinery to premium paintwork and hardware selection.",
-    image:
-      "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=800&q=80",
+      "Guesthouses, hotels, lodges, tourism facilities, and staff accommodation.",
+    image: "/images/hospitality.jpeg",
+  },
+  {
+    id: 4,
+    title: "Interior Design & Fit-Outs",
+    description:
+      "Kitchens, built-in cupboards, ceilings, flooring, feature walls, and custom joinery.",
+    image: "/images/interior.jpeg",
+  },
+  {
+    id: 5,
+    title: "Roofing & Structural Works",
+    description:
+      "Timber roof structures, trusses, pergolas, carports, and complete roofing systems.",
+    image: "/images/residential.jpeg",
+  },
+  {
+    id: 6,
+    title: "Renovations & Upgrades",
+    description:
+      "Modernisation of existing buildings to improve functionality, aesthetics, and value.",
+    image: "/images/finishes.jpeg",
   },
 ];

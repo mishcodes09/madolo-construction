@@ -1,8 +1,7 @@
 "use client";
 
-import Link from "next/link";
-import { useState, useEffect } from "react";
 import Image from "next/image";
+import { useState, useEffect } from "react";
 
 const navLinks = [
   { label: "About", href: "/about" },
@@ -21,10 +20,7 @@ export default function Navbar() {
     };
 
     window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
@@ -36,9 +32,8 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8 flex items-center justify-between">
         {/* Logo */}
         <a href="/" className="relative">
-          {/* White Logo */}
           <Image
-            src="/images/ma-logo.png"
+            src="/images/mad.png"
             alt="Madolo Logo"
             width={120}
             height={64}
@@ -47,9 +42,8 @@ export default function Navbar() {
             }`}
           />
 
-          {/* Dark Logo */}
           <Image
-            src="/images/ma-blacks.png"
+            src="/images/mad-wh.png"
             alt="Madolo Logo"
             width={120}
             height={64}
@@ -66,13 +60,13 @@ export default function Navbar() {
               <a
                 href={link.href}
                 className={`font-body text-sm transition-colors duration-200 relative
-                  after:absolute after:bottom-0 after:left-0 after:h-px after:w-0
-                  after:bg-primary after:transition-all after:duration-300 hover:after:w-full
-                  ${
-                    isScrolled
-                      ? "text-brand-text hover:text-primary"
-                      : "text-white hover:text-primary"
-                  }`}
+                after:absolute after:bottom-0 after:left-0 after:h-px after:w-0
+                after:bg-primary after:transition-all after:duration-300 hover:after:w-full
+                ${
+                  isScrolled
+                    ? "text-brand-text hover:text-primary"
+                    : "text-white hover:text-primary"
+                }`}
               >
                 {link.label}
               </a>
@@ -103,13 +97,11 @@ export default function Navbar() {
               isScrolled ? "bg-dark" : "bg-white"
             } ${mobileOpen ? "rotate-45 translate-y-2" : ""}`}
           />
-
           <span
             className={`block w-6 h-0.5 transition-all duration-300 ${
               isScrolled ? "bg-dark" : "bg-white"
             } ${mobileOpen ? "opacity-0" : ""}`}
           />
-
           <span
             className={`block w-6 h-0.5 transition-all duration-300 ${
               isScrolled ? "bg-dark" : "bg-white"
@@ -118,22 +110,18 @@ export default function Navbar() {
         </button>
       </div>
 
-      {/* Mobile Menu */}
+      {/* MOBILE MENU FIXED */}
       <div
-        className={`md:hidden overflow-hidden transition-all duration-300 bg-black border-t border-gray-100 ${
+        className={`md:hidden overflow-hidden transition-all text-center duration-300 bg-black border-t border-white/10 ${
           mobileOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
         }`}
       >
-        <ul className="px-6 py-4 flex flex-col gap-4">
+        <ul className="px-6 py-6 flex flex-col gap-5">
           {navLinks.map((link) => (
             <li key={link.label}>
               <a
                 href={link.href}
-                className={`font-body transition-colors duration-200 text-base ${
-                  isScrolled
-                    ? "text-brand-text hover:text-primary"
-                    : "text-white hover:text-primary"
-                }`}
+                className="font-body text-white text-base hover:text-primary transition-colors duration-200"
                 onClick={() => setMobileOpen(false)}
               >
                 {link.label}
@@ -144,11 +132,7 @@ export default function Navbar() {
           <li>
             <a
               href="#contact"
-              className={`inline-flex text-sm font-body font-medium px-5 py-2.5 rounded-xl transition-colors duration-300 ${
-                isScrolled
-                  ? "bg-dark text-white hover:bg-primary"
-                  : "bg-white text-dark hover:bg-primary hover:text-white"
-              }`}
+              className="inline-flex text-sm font-body font-medium px-5 py-2.5 bg-white text-dark hover:bg-primary hover:text-white transition-colors duration-300"
               onClick={() => setMobileOpen(false)}
             >
               Request Quote

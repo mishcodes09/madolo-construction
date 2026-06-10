@@ -5,7 +5,7 @@ export default function Process() {
     <section className="py-20 md:py-28">
       <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
         <div className="text-center mb-14">
-          <p className="font-body text-primary text-xs uppercase tracking-[0.25em] font-medium mb-3">
+          <p className="font-body text-[#eb191a] text-xs uppercase tracking-[0.25em] font-medium mb-3">
             How we do things
           </p>
           <h2 className="text-dark text-3xl md:text-4xl">
@@ -18,8 +18,8 @@ export default function Process() {
             <div key={step.id} className="group">
               {/* Number + Title row */}
               <div className="flex items-center gap-3 mb-4">
-                <div className="flex-shrink-0 w-9 h-9 rounded-full bg-primary/10 border border-primary/30 flex items-center justify-center">
-                  <span className="text-primary font-bold text-xs">
+                <div className="flex-shrink-0 w-9 h-9 rounded-full bg-[#eb191a]/10 border border-[#eb191a]/30 flex items-center justify-center">
+                  <span className="text-[#eb191a] font-bold text-xs">
                     {step.number}
                   </span>
                 </div>

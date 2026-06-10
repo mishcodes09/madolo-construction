@@ -4,11 +4,11 @@ const stats = [
     label: "Projects Completed",
   },
   {
-    number: "10+",
+    number: "20+",
     label: "Years Experience",
   },
   {
-    number: "98%",
+    number: "89%",
     label: "Client Satisfaction",
   },
   {
@@ -23,7 +23,7 @@ export default function ProjectStats() {
       <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
         {/* Heading */}
         <div className="text-center mb-14">
-          <p className="font-body text-primary text-xs uppercase tracking-[0.25em] font-medium mb-3">
+          <p className="font-body text-[#eb191a] text-xs uppercase tracking-[0.25em] font-medium mb-3">
             Our Impact
           </p>
 
@@ -39,7 +39,7 @@ export default function ProjectStats() {
               key={stat.label}
               className="border border-white/10 rounded-2xl p-8 bg-white/5 backdrop-blur-sm"
             >
-              <h3 className="text-primary text-4xl md:text-5xl font-semibold mb-3">
+              <h3 className="text-[#eb191a] text-4xl md:text-5xl font-semibold mb-3">
                 {stat.number}
               </h3>
 

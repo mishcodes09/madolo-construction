@@ -3,10 +3,10 @@ import React from "react";
 import Image from "next/image";
 
 const navLinks = [
-  { label: "About", href: "#about" },
-  { label: "Services", href: "#services" },
-  { label: "Shop", href: "#" },
-  { label: "Contact", href: "#contact" },
+  { label: "About", href: "/about" },
+  { label: "Services", href: "/#services" },
+  { label: "Projects", href: "/projects" },
+  { label: "Contact", href: "/#contact" },
 ];
 
 const socialLinks = [
@@ -79,8 +79,6 @@ const EmailIcon = () => (
 
 const getSocialIcon = (icon) => {
   switch (icon) {
-    case "instagram":
-      return <InstagramIcon />;
     case "tiktok":
       return <TikTokIcon />;
     default:
@@ -99,7 +97,7 @@ export default function Footer() {
           <div className="lg:col-span-2">
             <div className="flex items-center gap-3 mb-4">
               <Image
-                src="/images/ma-logo.png"
+                src="/images/mad.png"
                 alt="Madolo Logo"
                 width={150}
                 height={150}
@@ -117,7 +115,6 @@ export default function Footer() {
                 <a
                   key={social.label}
                   href={social.href}
-                  aria-label={social.label}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-9 h-9 rounded-lg bg-white/10 hover:bg-primary transition-colors duration-200 flex items-center justify-center"
@@ -127,17 +124,19 @@ export default function Footer() {
               ))}
             </div>
           </div>
-          {/* Nav links */}
+
+          {/* Navigation */}
           <div>
             <h4 className="font-body font-semibold text-white text-sm uppercase tracking-wide mb-4">
               Navigation
             </h4>
+
             <ul className="space-y-3">
               {navLinks.map((link) => (
                 <li key={link.label}>
                   <a
                     href={link.href}
-                    className="font-body text-white/50 hover:text-primary text-sm transition-colors duration-200"
+                    className="font-body text-white/50 hover:text-primary text-sm transition-colors"
                   >
                     {link.label}
                   </a>
@@ -146,29 +145,52 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Contact info */}
+          {/* Contact */}
           <div>
             <h4 className="font-body font-semibold text-white text-sm uppercase tracking-wide mb-4">
               Contact
             </h4>
+
             <ul className="space-y-3 text-sm font-body text-white/50">
+              {/* Address */}
               <li className="flex items-start gap-2">
                 <LocationIcon />
-                East London, Eastern Cape, South Africa
+                <a
+                  href="https://www.google.com/maps/search/?api=1&query=East+London+Eastern+Cape+South+Africa"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-primary transition-colors"
+                >
+                  East London, Eastern Cape, South Africa
+                </a>
               </li>
+
+              {/* Phone */}
               <li className="flex items-center gap-2">
                 <PhoneIcon />
-                +27 61 544 4038
+                <a
+                  href="tel:+27615444038"
+                  className="hover:text-primary transition-colors"
+                >
+                  +27 61 544 4038
+                </a>
               </li>
+
+              {/* Email */}
               <li className="flex items-center gap-2">
                 <EmailIcon />
-                info@madolo.co.za
+                <a
+                  href="mailto:info@madolo.org.za"
+                  className="hover:text-primary transition-colors"
+                >
+                  info@madolo.org.za
+                </a>
               </li>
             </ul>
           </div>
         </div>
 
-        {/* Divider */}
+        {/* Footer bottom */}
         <div className="border-t border-white/10 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="font-body text-white/30 text-sm">
             &copy; {currentYear} Madolo Construction.

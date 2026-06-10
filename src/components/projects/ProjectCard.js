@@ -14,7 +14,7 @@ export default function ProjectCard({ project }) {
 
       {/* Content */}
       <div className="p-6">
-        <p className="text-primary text-xs uppercase tracking-[0.2em] font-medium mb-2">
+        <p className="text-[#eb191a] text-xs uppercase tracking-[0.2em] font-medium mb-2">
           {project.category}
         </p>
 

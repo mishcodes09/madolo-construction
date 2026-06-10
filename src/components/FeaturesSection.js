@@ -32,7 +32,7 @@ export default function FeaturesSection() {
       <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
         {/* Label */}
         <p
-          className={`font-body text-primary text-xs uppercase tracking-[0.25em] text-center mb-4 font-medium transition-all duration-700 ${
+          className={`font-body text-[#eb191a] text-xs uppercase tracking-[0.25em] text-center mb-4 font-medium transition-all duration-700 ${
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
           }`}
         >
@@ -45,8 +45,8 @@ export default function FeaturesSection() {
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
           }`}
         >
-          We deliver reliable construction solutions backed by quality
-          workmanship and years of industry experience.
+          We believe every project should leave a lasting legacy of quality,
+          functionality, and beauty.
         </h2>
 
         {/* Paragraph (from your original Next version, kept but animated like Vue) */}
@@ -67,8 +67,8 @@ export default function FeaturesSection() {
           }`}
         >
           <a
-            href="#about"
-            className="inline-flex items-center gap-2 bg-primary text-white font-body font-medium text-sm px-7 py-3 hover:bg-orange-700 transition-colors duration-300"
+            href="/about"
+            className="inline-flex items-center gap-2 bg-[#eb191a] text-white font-body font-medium text-sm px-7 py-3 hover:bg-[#d81617] transition-colors duration-300"
           >
             Who we are
           </a>

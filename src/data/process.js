@@ -14,8 +14,7 @@ export const processSteps = [
     title: "Planning & Quotation",
     description:
       "Our team develops comprehensive project plans and provides transparent, itemised quotations with no hidden costs.",
-    image:
-      "https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=600&q=80",
+    image: "/images/quote.png",
   },
   {
     id: 3,
@@ -23,8 +22,7 @@ export const processSteps = [
     title: "Construction",
     description:
       "Skilled tradespeople execute every phase with precision, keeping you informed at every milestone.",
-    image:
-      "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=600&q=80",
+    image: "/images/m.png",
   },
   {
     id: 4,
