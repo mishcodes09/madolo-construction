@@ -25,6 +25,7 @@ export default function ContactSection() {
 
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -33,16 +34,64 @@ export default function ContactSection() {
       ...prev,
       [name]: value,
     }));
+
+    // Clear error when user starts typing
+    if (error) setError("");
+  };
+
+  // Validate form before submission
+  const validateForm = () => {
+    if (!form.name.trim()) {
+      setError("Please enter your full name.");
+      return false;
+    }
+
+    if (!form.email.trim()) {
+      setError("Please enter your email address.");
+      return false;
+    }
+
+    // Simple email validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(form.email)) {
+      setError("Please enter a valid email address.");
+      return false;
+    }
+
+    if (!form.projectType.trim()) {
+      setError("Please select a project type.");
+      return false;
+    }
+
+    if (!form.message.trim()) {
+      setError("Please enter a message or project description.");
+      return false;
+    }
+
+    if (form.message.trim().length < 10) {
+      setError("Please enter a message with at least 10 characters.");
+      return false;
+    }
+
+    return true;
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    // Clear previous errors
+    setError("");
+
+    // Validate form
+    if (!validateForm()) {
+      return;
+    }
+
     setLoading(true);
 
     try {
       // 1. Save to Supabase
-      const { error } = await supabase.from("leads").insert([
+      const { error: supabaseError } = await supabase.from("leads").insert([
         {
           name: form.name,
           email: form.email,
@@ -52,14 +101,21 @@ export default function ContactSection() {
         },
       ]);
 
-      if (error) throw error;
+      if (supabaseError) {
+        // Handle specific Supabase errors
+        if (supabaseError.code === "PGRST204") {
+          throw new Error("Unable to save your information. Please try again.");
+        }
+        throw new Error(
+          supabaseError.message ||
+            "Failed to save your information. Please try again.",
+        );
+      }
 
-      // 2. Success state
-      setSubmitted(true);
-
-      // 3. Open WhatsApp
-      const message = `
-Hi Madolo Construction,
+      // 2. Attempt to open WhatsApp
+      try {
+        const message = `
+Hi Maddlo Construction,
 
 Name: ${form.name}
 Phone: ${form.phone}
@@ -69,12 +125,24 @@ Message:
 ${form.message}
 `;
 
-      window.open(
-        `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`,
-        "_blank",
-      );
+        const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+        const whatsappWindow = window.open(whatsappUrl, "_blank");
 
-      // 4. Reset form
+        // Check if WhatsApp window was blocked
+        if (!whatsappWindow) {
+          console.warn(
+            "WhatsApp window may have been blocked by browser. Message saved but WhatsApp not opened.",
+          );
+        }
+      } catch (whatsappError) {
+        console.error("Error opening WhatsApp:", whatsappError);
+        // Don't fail the entire submission if WhatsApp fails
+      }
+
+      // 3. Success state
+      setSubmitted(true);
+
+      // 4. Reset form after delay
       setTimeout(() => {
         setSubmitted(false);
 
@@ -85,9 +153,20 @@ ${form.message}
           projectType: "",
           message: "",
         });
-      }, 2500);
+      }, 3500);
     } catch (err) {
-      console.error("Error saving lead:", err);
+      console.error("Error submitting form:", err);
+
+      // Display user-friendly error message
+      const errorMessage =
+        err instanceof Error
+          ? err.message
+          : "An unexpected error occurred. Please try again.";
+
+      setError(errorMessage);
+
+      // Attempt to submit via email as fallback if Supabase fails
+      // This could be implemented with a serverless function like Vercel Edge Functions
     } finally {
       setLoading(false);
     }
@@ -122,8 +201,15 @@ ${form.message}
 
             {/* Success Message */}
             {submitted && (
-              <div className="bg-green-50 border border-green-200 rounded-xl p-4 mb-6 text-green-700 font-body text-sm">
+              <div className="bg-green-50 border border-green-200 rounded-xl p-4 mb-6 text-green-700 font-body text-sm animate-in fade-in">
                 ✅ Thank you! We&apos;ll be in touch shortly.
+              </div>
+            )}
+
+            {/* Error Message */}
+            {error && (
+              <div className="bg-red-50 border border-red-200 rounded-xl p-4 mb-6 text-red-700 font-body text-sm animate-in fade-in">
+                ⚠️ {error}
               </div>
             )}
 
@@ -147,7 +233,8 @@ ${form.message}
                     value={form.name}
                     onChange={handleChange}
                     placeholder="Jane Smith"
-                    className="w-full font-body text-sm text-dark bg-brand-bg border border-gray-200 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#eb191a]/30 focus:border-[#eb191a] transition-all"
+                    disabled={loading}
+                    className="w-full font-body text-sm text-dark bg-brand-bg border border-gray-200 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#eb191a]/30 focus:border-[#eb191a] transition-all disabled:opacity-50 disabled:cursor-not-allowed"
                   />
                 </div>
 
@@ -167,7 +254,8 @@ ${form.message}
                     value={form.email}
                     onChange={handleChange}
                     placeholder="jane@example.com"
-                    className="w-full font-body text-sm text-dark bg-brand-bg border border-gray-200 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#eb191a]/30 focus:border-[#eb191a] transition-all"
+                    disabled={loading}
+                    className="w-full font-body text-sm text-dark bg-brand-bg border border-gray-200 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#eb191a]/30 focus:border-[#eb191a] transition-all disabled:opacity-50 disabled:cursor-not-allowed"
                   />
                 </div>
               </div>
@@ -189,7 +277,8 @@ ${form.message}
                     value={form.phone}
                     onChange={handleChange}
                     placeholder="+27 000 000 0000"
-                    className="w-full font-body text-sm text-dark bg-brand-bg border border-gray-200 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#eb191a]/30 focus:border-[#eb191a] transition-all"
+                    disabled={loading}
+                    className="w-full font-body text-sm text-dark bg-brand-bg border border-gray-200 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#eb191a]/30 focus:border-[#eb191a] transition-all disabled:opacity-50 disabled:cursor-not-allowed"
                   />
                 </div>
 
@@ -207,7 +296,8 @@ ${form.message}
                     required
                     value={form.projectType}
                     onChange={handleChange}
-                    className="w-full font-body text-sm text-dark bg-brand-bg border border-gray-200 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#eb191a]/30 focus:border-[#eb191a] transition-all appearance-none"
+                    disabled={loading}
+                    className="w-full font-body text-sm text-dark bg-brand-bg border border-gray-200 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#eb191a]/30 focus:border-[#eb191a] transition-all appearance-none disabled:opacity-50 disabled:cursor-not-allowed"
                   >
                     <option value="" disabled>
                       Select type
@@ -239,17 +329,22 @@ ${form.message}
                   value={form.message}
                   onChange={handleChange}
                   placeholder="Tell us about your project..."
-                  className="w-full font-body text-sm text-dark bg-brand-bg border border-gray-200 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#eb191a]/30 focus:border-[#eb191a] transition-all resize-none"
+                  disabled={loading}
+                  className="w-full font-body text-sm text-dark bg-brand-bg border border-gray-200 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#eb191a]/30 focus:border-[#eb191a] transition-all resize-none disabled:opacity-50 disabled:cursor-not-allowed"
                 />
               </div>
 
               {/* Submit */}
               <button
                 type="submit"
-                disabled={loading}
-                className="w-full bg-[#eb191a] text-white font-body font-semibold text-sm py-4 hover:bg-[#c7000c] transition-colors duration-300 mt-2 disabled:opacity-50"
+                disabled={loading || submitted}
+                className="w-full bg-[#eb191a] text-white font-body font-semibold text-sm py-4 hover:bg-[#c7000c] transition-colors duration-300 mt-2 disabled:opacity-50 disabled:cursor-not-allowed"
               >
-                {loading ? "Sending..." : "Request a Free Quote"}
+                {loading
+                  ? "Sending..."
+                  : submitted
+                    ? "✓ Message Sent"
+                    : "Request a Free Quote"}
               </button>
             </form>
           </div>
